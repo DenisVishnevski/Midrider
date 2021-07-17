@@ -10,7 +10,10 @@ public class Move : MonoBehaviour
     ScriptUI scriptUI;
     public GameObject obj;
 
+    public GameObject FlankColliders;
+
     public GameObject bonkPanel;
+    public GameObject bonkEffect;
     public Transform parent;
 
     public AudioClip moneyClip;
@@ -20,7 +23,10 @@ public class Move : MonoBehaviour
     float speedOld;
 
     public float jumpForce;
-   
+
+    BlackPanel panel;
+    public GameObject blackPanel;
+
 
 
     private Rigidbody rb;
@@ -46,17 +52,11 @@ public class Move : MonoBehaviour
    // int countMoney = 0;
    // public int countMoneyEnd;
  
-    void OnTriggerStay(Collider col)
-    {              
-        
-        if (col.tag == "Bonk") is_Bonk = true;
-       
-        
-    }
-    void OnTriggerExit(Collider col)
+
+    void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Jump") Jump();
-        if (col.tag == "Bonk") is_Bonk = false;
+        if (col.tag == "Bonk") is_Bonk = true;
         if (col.tag == "Money")
         {
 
@@ -69,7 +69,6 @@ public class Move : MonoBehaviour
 
         }
     }
-
     void MoneyBoom()
     {
         moneyBoom.SetActive(false);
@@ -109,6 +108,7 @@ public class Move : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         moneyBing = GetComponent<AudioSource>();
         scriptUI = obj.GetComponent<ScriptUI>();
+        panel = blackPanel.GetComponent<BlackPanel>();
 
     }
 
@@ -118,7 +118,7 @@ public class Move : MonoBehaviour
     private void FixedUpdate()
     {
 
-
+        FlankCollidersMove();
 
 
 
@@ -139,34 +139,42 @@ public class Move : MonoBehaviour
 
         
 
-        if (is_Bonk && overG )
+        if (is_Bonk && overG)
         {
 
             //countMoneyEnd = countMoney;
 
             moneyBing.PlayOneShot(bonkClip);
+            
+            bonkEffect.SetActive(true);
+            
+            panel.LoadScene();
+            
 
-            Instantiate(bonkPanel, parent);
 
             speed = 0;
             overG = false;
-            
+            Invoke("RestartMenu", .5f);
         }
-
-        
-        
        
-
-        
-        
-
-
+    }
+    void RestartMenu()
+    {
+        Instantiate(bonkPanel, parent);
+        panel.LoadSceneOpen();
 
     }
 
-
-    
-
+    void FlankCollidersMove()
+    {
+        FlankColliders.transform.position = transform.position;
+    }
+    public void RestartMenuExit()
+    {
+        
+        panel.LoadScene();
+        
+    }
 
 
 

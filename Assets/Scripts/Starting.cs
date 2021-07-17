@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Starting : MonoBehaviour
 {
-     public GameObject myscript;
-    
+
+    BlackPanel panel;
+    public GameObject obj;
+
+
+    private void Start()
+    {
+        panel = obj.GetComponent<BlackPanel>();
+        Play();
+    }
+
     public void Play()
     {
-        Destroy(myscript);
+        panel.LoadSceneOpen();
     }
 
-
-    void Update()
-    {
-        Invoke("Play", 1.0f);
-
-    }
 }

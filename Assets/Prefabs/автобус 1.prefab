@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8673160933063087916}
   m_Layer: 0
   m_Name: default
-  m_TagString: Bonk
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +104,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9071108241582974929}
+  - component: {fileID: 7598360710414762479}
+  - component: {fileID: 2092847546843531850}
   m_Layer: 0
   m_Name: "\u0430\u0432\u0442\u043E\u0431\u0443\u0441 1"
-  m_TagString: Untagged
+  m_TagString: Bonk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,3 +128,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7598360710414762479
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550326120398699883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.47, y: 1.87, z: 3.1}
+  m_Center: {x: -0.0000005364419, y: 1.05, z: 0}
+--- !u!114 &2092847546843531850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8550326120398699883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec574855f0ab92408bdeb74fa8726be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -33,14 +33,14 @@ Material:
     - _FogBottom: 1
     - _FogEnd: 0.24
     - _FogIntens: 1
-    - _FogStart: 0
+    - _FogStart: 0.02
     - _MieIntens: 0
     - _MieSize: 0.359
-    - _Rotation: 295.45
+    - _Rotation: 289
     - _SunDir: 55
     m_Colors:
     - <noninit>: {r: 0, g: 2.0182498, b: 1e-45, a: 1.2904559e-15}
-    - _FogCol: {r: 0.8018868, g: 0.6274475, b: 0.5194612, a: 1}
+    - _FogCol: {r: 0.8, g: 0.627451, b: 0.5176471, a: 1}
     - _MieTint: {r: 0, g: 0, b: 0, a: 0.5}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

@@ -11,6 +11,9 @@ TagManager:
   - Jump
   - Money
   - Player1
+  - ButtonNext
+  - FlankRight
+  - FlankLeft
   layers:
   - Default
   - TransparentFX

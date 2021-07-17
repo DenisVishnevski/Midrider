@@ -18,7 +18,7 @@ public class Spawn : MonoBehaviour
     public GameObject CarPlus;
     public GameObject BusPlus1;
     public GameObject BusPlus2;
-    public GameObject Tonnel;
+    
 
     Object obj;
 
@@ -97,18 +97,7 @@ public class Spawn : MonoBehaviour
 
 
 
-            if (transform.position.x > 2200)
-            {
-                Instantiate(Tonnel, transform.position - new Vector3(0, 0, raddOut), transform.rotation);
-
-                if (transform.position.x > 2380)
-                {
-                    SceneManager.LoadScene("NightScene", LoadSceneMode.Single);
-                }
-            }
-            else
-            {
-
+            
 
 
                 switch (randCar)
@@ -181,7 +170,7 @@ public class Spawn : MonoBehaviour
                                 }
                                 else
                                 {
-                                    Instantiate(bus, transform.position, transform.rotation);
+                                    
                                     // Instantiate(springboard, transform.position + new Vector3(-25, 0, 0), transform.rotation);
 
                                     Instantiate(board, transform.position + new Vector3(20, 0, 0), Quaternion.Euler(0, 90, 0));
@@ -207,7 +196,7 @@ public class Spawn : MonoBehaviour
                             else
                             {
 
-                                Instantiate(bus, transform.position, transform.rotation);
+                                
 
 
                                 Instantiate(obj, transform.position + springboardVector + springboardVector - new Vector3(0, 0, raddOut), transform.rotation);
@@ -240,7 +229,7 @@ public class Spawn : MonoBehaviour
                 }
                 
 
-            }
+            
             transform.position = new Vector3(transform.position.x, transform.position.y, 5);
         }
     }
