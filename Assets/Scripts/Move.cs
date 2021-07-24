@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Move : MonoBehaviour
 {
-     public float speed;
+    public float speed;
 
-    ScriptUI scriptUI;
+    private ScriptUI scriptUI;
     public GameObject obj;
 
     public GameObject FlankColliders;
@@ -20,19 +17,19 @@ public class Move : MonoBehaviour
     public AudioClip bonkClip;
     public AudioSource moneyBing;
     public GameObject moneyBoom;
-    float speedOld;
+    private float speedOld;
 
     public float jumpForce;
 
-    BlackPanel panel;
+    private BlackPanel panel;
     public GameObject blackPanel;
 
 
 
     private Rigidbody rb;
 
-    int laneNumber = 1;
-    int laneCount = 2;
+    private int laneNumber = 1;
+    private int laneCount = 2;
 
     public float FirstLanePos,
                  LaneDistance,
@@ -40,27 +37,18 @@ public class Move : MonoBehaviour
 
     
 
-    bool overG = true;
+    private bool overG = true;
 
 
     
-    bool is_Bonk = false;
+    private bool is_Bonk = false;
 
-   // public Text _text;
-
-    
-   // int countMoney = 0;
-   // public int countMoneyEnd;
- 
-
-    void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Jump") Jump();
         if (col.tag == "Bonk") is_Bonk = true;
         if (col.tag == "Money")
         {
-
-            //  countMoney += 1;
             scriptUI.MoneyUI();
             moneyBing.clip = moneyClip;
             moneyBing.PlayOneShot(moneyClip);
@@ -69,7 +57,7 @@ public class Move : MonoBehaviour
 
         }
     }
-    void MoneyBoom()
+    private void MoneyBoom()
     {
         moneyBoom.SetActive(false);
     }
@@ -84,7 +72,7 @@ public class Move : MonoBehaviour
         Invoke("JunmEnd", 1.0f);
 
     }
-    void JunmEnd()
+    private void JunmEnd()
     {
         speed = speedOld;
     }
@@ -142,8 +130,6 @@ public class Move : MonoBehaviour
         if (is_Bonk && overG)
         {
 
-            //countMoneyEnd = countMoney;
-
             moneyBing.PlayOneShot(bonkClip);
             
             bonkEffect.SetActive(true);
@@ -158,14 +144,14 @@ public class Move : MonoBehaviour
         }
        
     }
-    void RestartMenu()
+    private void RestartMenu()
     {
         Instantiate(bonkPanel, parent);
         panel.LoadSceneOpen();
 
     }
 
-    void FlankCollidersMove()
+    private void FlankCollidersMove()
     {
         FlankColliders.transform.position = transform.position;
     }

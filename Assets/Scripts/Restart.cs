@@ -42,18 +42,18 @@ public class Restart : MonoBehaviour
         Invoke("Exit", timeLoad);
     }
 
-    void ToStart()
+    private void ToStart()
     {
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
 
-    void Restarting()
+    private void Restarting()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
 
     }
-    void Exit()
+    private void Exit()
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
